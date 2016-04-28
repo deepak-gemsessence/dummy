@@ -1,0 +1,72 @@
+Migration :-
+
+
+
+1). why???
+rails generate migration AddDetailsToProducts 'price:decimal{5,2}' supplier:references{polymorphic}
+
+
+2). how to change the 'defult' value
+
+
+3). how to use this table name 'categorization'
+create_join_table :demos, :sells
+
+
+4). not workoing ->
+t.decimal :precentage, precision: 4, scale: 2
+&
+required Adds required
+
+5). 3.7 When Helpers aren't Enough
+Product.connection.execute('UPDATE `products` SET `price`=`free` WHERE 1')
+
+
+6). class CreateDistributors < ActiveRecord::Migration
+  def change
+    create_table :distributors do |t|
+
+      t.string :zipcode
+
+      t.timestamps null: false
+    end
+    reversible do |dir|
+          dir.up do
+            # add a CHECK constraint
+            execute <<-SQL
+              ALTER TABLE distributors
+                ADD CONSTRAINT zipchk
+                  CHECK (char_length(zipcode) = 5) NO INHERIT;
+            SQL
+          end
+          dir.down do
+            execute <<-SQL
+              ALTER TABLE distributors
+                DROP CONSTRAINT zipchk
+            SQL
+          end
+        end
+
+        # add_column :users, :home_page_url, :string
+        # rename_column :users, :email, :email_address
+
+  end
+end
+
+
+7). 3.11 Reverting Previous Migrations
+
+8. why???
+rake db:reset
+rake db:create
+rake db:drop
+rake db:schema:load
+rake db:setup
+rake db:reset
+
+
+9. Running Migrations in Different Environments
+rake db:migrate RAILS_ENV=test
+
+10. 4.6 Changing the Output of Running Migrations
+

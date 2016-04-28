@@ -1,0 +1,28 @@
+from  =  http://guides.rubyonrails.org/active_record_querying.html
+
+
+Overriding Conditions
+
+Null Relation
+
+Readonly Objects
+
+Locking Records for Update
+
+12.2 Using Array/Hash of Named Associations
+
+13 Eager Loading Associations
+
+14 Scopes
+
+17.2 pluck
+the role of 'active: true' i.e. 17.2 pluck
+
+18 Existence of Objects
+A.any?
+or
+New.many?
+etc etc....
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
